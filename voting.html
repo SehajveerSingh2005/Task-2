@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIGG BOSS</title>
+    <link rel="stylesheet" href="voting.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+    <script src="voting.js" type="module"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <p>Loading...</p>
+      </div> 
+    <div class="header">
+        <a href="landing.html"><img id="logo" src="/images/logo.png"></a>
+        <ul id="navlist">
+          <li id="active"><a href="landing.html" id="current">Home</a></li>
+          <li><a href="#">Watch</a></li>
+          <li><a href="voting.html">Vote</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li><a href="cont2.html">Contestants</a></li>
+        </ul>
+        <div class="action" id="profiledropdown">
+            <div class="profile" id="profile">
+                <img src="images/icons/user.png" id="profilepic"/>
+            </div>
+            <div class="menu">
+                <h3>User</h3>
+                <ul>
+                <li>
+                    <img src="/images/icons/user.png"><a href="profile.html">My profile</a>
+                </li>
+                <li>
+                    <img src="/images/icons/log-out.png"><a href="#" id="signoutbtn">Logout</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- mobile navbar -->
+    <div class="topnav">
+        <a href="landing.html" class="active"><img id="logo" src="/images/logo.png"></a>
+        <div id="myLinks">
+          <a href="watch.html">Watch</a>
+          <a href="voting.html">Vote</a>
+          <a href="result.html">Result</a>
+          <a href="cont2.html">Contestants</a>
+          <a href="profile.html">My Profile</a>
+          <a href="#" id="signoutbtn_m">Logout</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+
+
+    <div class="title">Vote For Your <span> Favourite </span> Contestant Now!</div>
+    <div class="main">
+        <div class="card-container">
+            <div class="card Aishwarya" id="Aishwarya"><div class="name">Aishwarya Sharma</div></div>
+            <div class="card Ankita" id="Ankita"><div class="name">Ankita Lokhande</div></div>
+            <div class="card Anurag" id="Anurag"><div class="name">Anurag Dobhal</div></div>
+            <div class="card Firoza" id="Firoza"><div class="name">Firoza Khan</div></div>
+            <div class="card Isha" id="Isha"><div class="name">Isha Malviya</div></div>
+            <div class="card Mannara" id="Mannara"><div class="name">Mannara Chopra</div></div>
+            <div class="card Munawar" id="Munawar"><div class="name">Munawar Faruqui</div></div>
+            <div class="card Neil" id="Neil"><div class="name">Neil Bhatt</div></div>
+            <div class="card Samarth" id="Samarth"><div class="name">Samarth Jurel</div></div>
+            <div class="card Vicky" id="Vicky"><div class="name">Vicky Jain</div></div>
+        </div>
+        <div class="btn-container">
+            <a href="#" id="votebtn" class="votebtn"><span class="votebtn-helper"></span>Vote</a>
+            <div class="countdown-timer" id="countdown-timer"></div>
+        </div>
+        <div class="voted" id="votedmsg">Thank You For Voting!</div>
+    </div>
+</body>
+</html>

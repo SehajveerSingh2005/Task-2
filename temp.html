@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="temp.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+.metercontainer{
+    display: flex;
+}
+.meterheading{
+    color: white;
+    font-size: 26px;
+    margin-right: 20px;
+}
+.progressBar {
+display: block;
+width: 200px;
+min-width: 200px;
+height: 30px;
+background-color: #f7f7f7;
+border-radius: 50px;
+}
+
+.bar {
+background-color: #f59504;
+float: left;
+padding: 0px;
+margin: 0px;
+width: 0px;
+height: 30px;
+border-radius: 50px;
+}
+<body>
+    <div class="metercontainer">
+        <div class="meterheading">Popularity Meter :</div>
+        <div class='progressBar'>
+            <div class='bar'></div>
+       </div>
+    </div>
+</body>
+<script src="temp.js" type="module">
+var followers = 1000000;
+var total = 35550000;
+var barPerc = (followers/total)*200;
+    
+$(document).ready(function() {
+    $(".bar").css("width", barPerc);
+});
+</script>
+</html>
+
+

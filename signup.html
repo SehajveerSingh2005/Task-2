@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bigg Boss</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="title-text">
+      <div class="title login">Welcome Back!</div>
+      <div class="title signup">Register Now!</div>
+    </div>
+    <div class="form-container">
+      <div class="slide-controls">
+        <input type="radio" name="slide" id="login" checked>
+        <input type="radio" name="slide" id="signup">
+        <label for="login" class="slide login">Login</label>
+        <label for="signup" class="slide signup">Signup</label>
+        <div class="slider-tab"></div>
+      </div>
+      <div class="form-inner">
+        <form action="#" class="login">
+          <div class="field">
+            <input type="text" placeholder="Email Address" required>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="pass-link" id="forgotpass"><a href="#">Forgot password?</a></div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Login">
+          </div>
+          <div class="signup-link">Not a member? <a href="">Signup now</a></div>
+        </form>
+        <form action="#" class="signup">
+          <div class="field">
+            <input type="text" placeholder="Username" id="username" required>
+          </div>
+          <div class="field">
+            <input type="email" placeholder="Email Address" id="email" required>
+          </div>
+          <div class="field">
+            <input type="tel" pattern="[789][0-9]{9}" placeholder="Phone Number" id="phn" required>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Password" id="pwd" required>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" required> I agree to the terms and conditions</div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Signup" id="submit">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</body>
+<script src="signup.js" type="module"></script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="results.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="result.js" type="module"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="loading-screen">
+    <p>Loading...</p>
+  </div> 
+  <div class="header">
+    <a href="landing.html"><img id="logo" src="/images/logo.png"></a>
+    <ul id="navlist">
+      <li id="active"><a href="voting.html" id="current">Home</a></li>
+      <li><a href="#">Watch</a></li>
+      <li><a href="voting.html">Vote</a></li>
+      <li><a href="result.html">Result</a></li>
+      <li><a href="cont2.html">Contestants</a></li>
+    </ul>
+    <div class="action" id="profiledropdown">
+      <div class="profile" id="profile">
+          <img src="images/icons/user.png" id="profilepic" />
+      </div>
+      <div class="menu">
+          <h3>User</h3>
+          <ul>
+          <li>
+              <img src="/images/icons/user.png"><a href="profile.html">My profile</a>
+          </li>
+          <li>
+              <img src="/images/icons/log-out.png"><a href="#" id="signoutbtn">Logout</a>
+          </li>
+          </ul>
+      </div>
+  </div>
+</div>
+  </div>
+  <div class="topnav">
+    <a href="landing.html" class="active"><img id="logo" src="/images/logo.png"></a>
+    <div id="myLinks">
+      <a href="watch.html">Watch</a>
+      <a href="voting.html">Vote</a>
+      <a href="result.html">Result</a>
+      <a href="cont2.html">Contestants</a>
+      <a href="profile.html">My Profile</a>
+      <a href="#" id="signoutbtn_m">Logout</a>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myLinks");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+    </script>
+
+
+  <div class="title"> Voting <span class="spanclass">Results</span>
+    <div class="select-menu">
+      <div class="select">
+        <span>Week-15</span>
+        <i class="fas fa-angle-down"></i>
+      </div>
+      <div class="options-list">
+        <div class="option" id="week1">Week-1</div>
+        <div class="option" id="week2">Week-2</div>
+        <div class="option" id="week3">Week-3</div>
+        <div class="option" id="week4">Week-4</div>
+        <div class="option" id="week5">Week-5</div>
+        <div class="option" id="week6">Week-6</div>
+        <div class="option" id="week7">Week-7</div>
+        <div class="option" id="week8">Week-8</div>
+        <div class="option" id="week9">Week-9</div>
+        <div class="option" id="week10">Week-10</div>
+        <div class="option" id="week11">Week-11</div>
+        <div class="option" id="week12">Week-12</div>
+        <div class="option" id="week13">Week-13</div>
+        <div class="option" id="week14">Week-14</div>
+        <div class="option" id="week15">Week-15</div>
+      </div>
+    </div></div>
+  <div id="progressBarsContainer" class="progress-container"></div>
+</body>
+</html>
