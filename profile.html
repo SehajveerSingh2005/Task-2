@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="profile.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '418371494243365',
+            xfbml            : true,
+            version          : 'v19.0'
+          });
+        };
+      </script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div id="loading-screen">
+        <p>Loading...</p>
+      </div> 
+    <div class="header">
+        <a href="landing.html"><img id="logo" src="/images/logo.png"></a>
+        <ul id="navlist">
+          <li id="active"><a href="landing.html" id="current">Home</a></li>
+          <li><a href="watch.html">Watch</a></li>
+          <li><a href="voting.html">Vote</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li><a href="cont2.html">Contestants</a></li>
+        </ul>
+        <div class="action" id="profiledropdown">
+            <div class="profile" id="profile">
+                <img src="images/icons/user.png" id="imageid3" />
+            </div>
+            <div class="menu">
+                <h3>User</h3>
+                <ul>
+                <li>
+                    <img src="/images/icons/user.png"><a href="profile.html">My profile</a>
+                </li>
+                <li>
+                    <img src="/images/icons/log-out.png"><a href="#" id="signoutbtn">Logout</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- mobile navbar -->
+    <div class="topnav">
+        <a href="landing.html" class="active"><img id="logo" src="/images/logo.png"></a>
+        <div id="myLinks">
+          <a href="watch.html">Watch</a>
+          <a href="voting.html">Vote</a>
+          <a href="result.html">Result</a>
+          <a href="cont2.html">Contestants</a>
+          <a href="profile.html">My Profile</a>
+          <a href="#" id="signoutbtn_m">Logout</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+
+
+
+    <div class="main">
+        <div class="card1">
+            <div class="profilepic">
+                <img src="images/icons/user.png" alt="" class="img" id="imageid">
+                <!-- <label for="file">
+                    <span><img src="images/icons/edit.png" class="editicon" id="editbtn"></span>
+                  </label>
+                  <input type="file" id="file" accept="image/*"> -->
+            </div>
+        <div class="info">
+        <div class="usern">
+            <p class="para">Username:</p>
+            <p class="name1" id="username">Username</p>
+        </div>
+        <div class="em">
+            <p class="para">Email Address:</p>
+            <p class="email" id="email">
+                Email ID
+            </p>
+        </div>
+        <div class="phonen">
+            <p class="para">Phone Number:</p>
+            <p class="pn" id="phn">
+                Phone Number
+            </p>
+        </div>
+        </div>
+        <button id="myBtn" class="editprofilebtn">Edit Profile</button>
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-body">
+        <h1>Edit Profile</h1>
+        <div class="profilepic">
+            <img src="images/icons/user.png" alt="" class="img" id="imageid2">
+            <label for="file">
+                <span><img src="images/icons/edit.png" class="editicon" id="editbtn"></span>
+              </label>
+              <input type="file" id="file" accept="image/*">
+        </div>
+        <div class="progress-container" id="progress-container"></div>
+        <form class="editform" action="#">
+            <div class="field">
+                <input type="text" placeholder="Username" id="usernameform" required>
+              </div>
+              <div class="field">
+                <input type="email" placeholder="Email Address" id="emailform" required>
+              </div>
+              <div class="field">
+                <input type="tel" pattern="[789][0-9]{9}" placeholder="Phone Number" id="phnform" required>
+              </div>
+              <div class="field btn">
+                <div class="btn-layer"></div>
+                <input type="submit" value="Submit" id="submit">
+              </div>
+        </form>
+        </div>
+    </div>
+
+    </div>
+    <div id="voted-history" class="container">
+        <h1 class="timelineh">Timeline</h1>
+    </div>
+    </div>
+</body>
+<script src="profile.js" type="module"></script>
+</html>
