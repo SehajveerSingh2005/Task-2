@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="contestants.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <a href="landing.html"><img id="logo" src="/images/logo.png"></a>
+        <ul id="navlist">
+          <li id="active"><a href="landing.html" id="current">Home</a></li>
+          <li><a href="watch.html">Watch</a></li>
+          <li><a href="voting.html">Vote</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li><a href="cont2.html">Contestants</a></li>
+        </ul>
+        <div class="action" id="profiledropdown">
+          <div class="profile" id="profile">
+              <img src="images/icons/user.png" />
+          </div>
+          <div class="menu">
+              <h3>User</h3>
+              <ul>
+              <li>
+                  <img src="/images/icons/user.png"><a href="profile.html">My profile</a>
+              </li>
+              <li>
+                  <img src="/images/icons/log-out.png"><a href="#" id="signoutbtn">Logout</a>
+              </li>
+              </ul>
+          </div>
+      </div>
+    </div>
+      </div>
+    <div class="main">
+        <div class="left">
+            <div class="image"><img src="/images/mannara.webp" alt=""></div>
+            <div class="head">
+                <h1>Birth Name: MANNARA </h1>
+            </div>
+            <div class="head">
+                <h1>Age: 22</h1>
+            </div>
+            <div class="head">
+                <h1> ACTRESS </h1>
+            </div>
+            <div class="metercontainer">
+                <div class="meterheading">Popularity Meter :</div>
+                <div class='progressBar'>
+                    <div class='bar'></div>
+               </div>
+            </div>
+            <div class="icons">
+                <div class="icons1"><a href="https://www.instagram.com/memannara/?hl=en"><i class="fab fa-instagram"></i></a></div>
+                <div class="icons2"><a href="https://www.facebook.com/MeMannara/"><i class="fab fa-facebook-f"></i></i></a></div>
+                <div class="icons3"><a href="https://twitter.com/memannara"><i class="fab fa-twitter"></i></a></div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="content">
+           
+                <h1>BIO</h1>
+                    <p>
+                        Mannara Chopra, also known as Barbie Handa, is a talented Indian actress known for her work in the Telugu and Hindi film industries. With her captivating performances and stunning beauty, Mannara has carved a niche for herself in the world of entertainment. She made her acting debut in the film "Zid" and has since starred in several successful films. Mannara continues to charm audiences with her on-screen presence and versatile roles. Follow her journey on social media for more glimpses into her life and career.
+
+                    </p>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { doc, getFirestore, collection, getDocs, getAggregateFromServer ,sum,where,query} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"
+import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDXIajxTK_g31he872G4xnM-nlZ9cmfz6k",
+    authDomain: "bigg-boss-voting-zone.firebaseapp.com",
+    databaseURL: "https://bigg-boss-voting-zone-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "bigg-boss-voting-zone",
+    storageBucket: "bigg-boss-voting-zone.appspot.com",
+    messagingSenderId: "798018597331",
+    appId: "1:798018597331:web:bc3f21b7e43acdffd2ff26",
+    measurementId: "G-NPR5T4V3E6"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+function updateProfileMenu(userName) {
+    const menuElement = document.getElementById('profiledropdown').querySelector('.menu h3');
+    menuElement.textContent = userName;
+  }
+
+onAuthStateChanged(auth,(user)=>{
+
+    const profiledrop = document.getElementById( 'profiledropdown' );
+    loadingScreen.style.display = 'block';
+  
+    if (user) {
+        loadingScreen.style.display = 'none';
+        profiledrop.style.display='block';
+        const userId = user.uid;
+        fetchUsername(userId);
+    }
+    else{
+        window.location.href = 'signup.html';
+    }
+  })
+
+  async function fetchUsername(userId) { 
+  
+  const q = query(collection(db,'users'), where('UID',"==",userId)) // Access the user document based on ID
+
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  const username = doc.data().Username;
+  updateProfileMenu(username);
+});
+}
+
+const signOutUser = () => {
+        auth.signOut().then(() => {
+            // Sign-out successful.
+            console.log('User signed out successfully');
+            // You can redirect the user to another page or perform any other actions after sign-out
+        }).catch((error) => {
+            // An error happened.
+            console.error('Sign-out error:', error);
+        });
+    };
+    
+    const signoutbtn = document.getElementById( 'signoutbtn' );
+    
+    signoutbtn.addEventListener( 'click', signOutUser, false ) ;
+// Loop through the query snapshot and create progress bars
+
+function menuToggle() {
+    const toggleMenu = document.querySelector(".menu");
+    toggleMenu.classList.toggle("active");
+    console.log('active');
+  }
+
+const profile = document.getElementById("profile");
+
+profile.addEventListener( "click", menuToggle);
+
+var followers = 4000000;
+var total = 35550000;
+var barPerc = (followers/total)*750;
+    
+$(document).ready(function() {
+    $(".bar").css("width", barPerc);
+});
+</script>
+</html>
